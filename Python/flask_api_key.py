@@ -1,5 +1,16 @@
 #!/usr/bin/env python
 
+"""
+$ curl "http://localhost:5000/protected?apikey=CCCC"
+SOMETHING SECRET!!!
+$ curl "http://localhost:5000/"
+HAYYY
+$ curl "http://localhost:5000/protected"
+Invalid API Key. Please contact someone@shittystartup.io
+$ curl "http://localhost:5000/protected?apikey=ZZZZ"
+Invalid API Key. Please contact someone@shittystartup.io
+"""
+
 from flask import Flask, request, abort
 from functools import wraps
 from werkzeug.wrappers import Response
